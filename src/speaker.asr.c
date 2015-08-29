@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "3rd-include/qisr.h"
-#include "3rd-include/msp_cmn.h"
-#include "3rd-include/msp_errors.h"
+#include <ifly/qisr.h>
+#include <ifly/msp_cmn.h>
+#include <ifly/msp_errors.h>
 
 #define MAX_KEYWORD_LEN 4096
 char GrammarID[128];
@@ -108,7 +108,7 @@ asr_run (const char* asrfile)
 		{
 			break;
 		}
-		printf("\ncsid=%s,count=%d,aus=%d,",sessionID,pcmCount/audio_len,audStat);
+		printf("\ncsid=%s,count=%lu,aus=%d,",sessionID,pcmCount/audio_len,audStat);
 		ret = QISRAudioWrite(sessionID, (const void *)&pPCM[pcmCount], len, audStat, &epStatus, &recStatus);
 		printf("eps=%d,rss=%d,ret=%d",epStatus,recStatus,ret);
 		if (ret != 0)
