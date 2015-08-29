@@ -21,16 +21,16 @@ get_audio_file(void)
 		{
 		case '1':
 			printf("1.科大讯飞\n");
-			return "../test/sound/iflytek01.wav";                               //iflytek01对应的音频内容“科大讯飞”
+			return "test/sound/iflytek01.wav";                               //iflytek01对应的音频内容“科大讯飞”
 		case '2':
 			printf("2.阿里山龙胆\n");
-			return "../test/sound/iflytek02.wav";                               //iflytek02对应的音频内容“阿里山龙胆”
+			return "test/sound/iflytek02.wav";                               //iflytek02对应的音频内容“阿里山龙胆”
 		case '3':
 			printf("3.齐鲁石化\n");
-			return "../test/sound/iflytek03.wav";                               //iflytek03对应的音频内容“齐鲁石化”
+			return "test/sound/iflytek03.wav";                               //iflytek03对应的音频内容“齐鲁石化”
 		case '4':
 			printf("4.一二三四五六七八九十\n");
-			return "../test/sound/iflytek04.wav";                               //iflytek04对应的音频内容"一二三四五六七八九十"
+			return "test/sound/iflytek04.wav";                               //iflytek04对应的音频内容"一二三四五六七八九十"
 		default:
 			continue;
 		}
@@ -38,7 +38,6 @@ get_audio_file(void)
 	exit(0);
 	return NULL;
 }
-
 
 int main ()
 {
