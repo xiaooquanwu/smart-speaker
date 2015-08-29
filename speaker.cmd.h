@@ -1,5 +1,5 @@
-#ifndef SPEAKER_H
-#define SPEAKER_H
+#ifndef SPEAKER_CMD_H
+#define SPEAKER_CMD_H
 
 typedef int io_t;
 
@@ -49,4 +49,4 @@ reply_send(io_t *io, reply_t *reply);
 reply_t*
 reply_recv(io_t *io);
 
-#endif /* SPEAKER_H */
+#endif /* SPEAKER_CMD_H */

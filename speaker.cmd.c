@@ -1,5 +1,6 @@
-#include "speaker.h"
+#include "speaker.cmd.h"
 #include <stdlib.h>
+#include <string.h>
 
 request_t*
 request_new(request_op_t op, const char *cmd)

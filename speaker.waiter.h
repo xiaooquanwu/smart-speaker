@@ -1,0 +1,5 @@
+#ifndef SPEACKER_WAITER_H
+#define SPEACKER_WAITER_H
+
+
+#endif /* SPEACKER_WAITER_H */

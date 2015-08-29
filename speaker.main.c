@@ -1,4 +1,4 @@
-﻿#include "asrdemo.h"
+﻿#include "speaker.asr.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
