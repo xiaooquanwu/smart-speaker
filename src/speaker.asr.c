@@ -28,7 +28,7 @@ int get_grammar_id( int upload)
 		return 0;
 	}	
 	//如果想要重新上传语法，传入参数upload置为TRUE，就可以走下面的上传语法流程
-	fp = fopen("../asr_keywords_utf8.txt", "rb");  //关键字列表文件必须是utf8格式
+	fp = fopen("../conf/asr_keywords_utf8.txt", "rb");  //关键字列表文件必须是utf8格式
 	if (fp == NULL)
 	{
 		printf("keyword file cannot open\n");
@@ -127,7 +127,7 @@ asr_run (const char* asrfile)
 		}
 		if (epStatus == MSP_EP_AFTER_SPEECH)
 			break;
-		usleep(1500);
+		usleep(150000);
 	}
 	ret=QISRAudioWrite(sessionID, (const void *)NULL, 0, 4, &epStatus, &recStatus);
 	if (ret !=0)
@@ -162,7 +162,7 @@ asr_init ()
 	const char* login_config = "appid = 55bbb30a,work_dir =   .  ";
 	int ret = 0 ;
 	char key = 0 ;
-	int grammar_flag = 1;   //0:不上传词表；1：上传词表
+	int grammar_flag = 0;   //0:不上传词表；1：上传词表
 	ret = MSPLogin(NULL, NULL, login_config);
 	if ( ret != MSP_SUCCESS )
 	{

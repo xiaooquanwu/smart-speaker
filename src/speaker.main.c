@@ -45,5 +45,6 @@ int main ()
     asr_init();
 	const char* asrfile = get_audio_file(); //选择
     char *result = asr_run(asrfile);
-    printf ("get the result:<%s>\n", result);
+    printf ("result: <%s>\n", result);
+    tts_run ("科大讯飞");
 }
