@@ -10,6 +10,7 @@ SET(SPEAKER_SRC src/speaker.asr.c
                 src/speaker.waiter.c 
                 src/speaker.main.c) 
 INCLUDE_DIRECTORIES (${CMAKE_CURRENT_SOURCE_DIR}/3rd-libs/include)
+SET (3rd-LIBS ${CMAKE_CURRENT_SOURCE_DIR}/3rd-libs/lib)
 
 ADD_EXECUTABLE(demo ${SPEAKER_SRC})
-TARGET_LINK_LIBRARIES(demo msc pthread rt dl)
+TARGET_LINK_LIBRARIES(demo ${3rd-LIBS}/ifly/libmsc.so pthread rt dl)
