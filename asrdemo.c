@@ -127,13 +127,16 @@ asr_run (const char* asrfile)
 		}
 		if (epStatus == MSP_EP_AFTER_SPEECH)
 			break;
-		usleep(150000);
+		usleep(1500);
 	}
 	ret=QISRAudioWrite(sessionID, (const void *)NULL, 0, 4, &epStatus, &recStatus);
 	if (ret !=0)
 	{
 		printf("QISRAudioWrite Failed,ret=%d\n",ret);
 	}
+
+    printf ("QISRAudioWrite SUCC\n");
+
 	free(pPCM);
 	pPCM = NULL;
 	while (recStatus != 5 && ret == 0) {
@@ -159,7 +162,7 @@ asr_init ()
 	const char* login_config = "appid = 55bbb30a,work_dir =   .  ";
 	int ret = 0 ;
 	char key = 0 ;
-	int grammar_flag = 0;   //0:不上传词表；1：上传词表
+	int grammar_flag = 1;   //0:不上传词表；1：上传词表
 	ret = MSPLogin(NULL, NULL, login_config);
 	if ( ret != MSP_SUCCESS )
 	{

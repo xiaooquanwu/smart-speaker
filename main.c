@@ -45,10 +45,5 @@ int main ()
     asr_init();
 	const char* asrfile = get_audio_file(); //选择
     char *result = asr_run(asrfile);
-    char *child = strstr(result, "input=");
-    child[6+12]=0;
-    if (strncmp (child+6, "齐鲁石化", 12)==0)
-        printf ("get the result:<%s>\n", child+6);
-    printf ("len=%d\n", strlen("齐鲁石化"));
-    printf ("len=%d\n", strlen(child+6));
+    printf ("get the result:<%s>\n", result);
 }
