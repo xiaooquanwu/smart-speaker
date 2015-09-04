@@ -1,5 +1,5 @@
-#ifndef SPEACKER_ASR_H
-#define SPEACKER_ASR_H
+#ifndef SPEAKER_ASR_H
+#define SPEAKER_ASR_H
 
 int
 asr_init();
@@ -7,4 +7,4 @@ asr_init();
 char*
 asr_run(const char *asrfile);
 
-#endif /* SPEACKER_ASR_H */
+#endif /* SPEAKER_ASR_H */

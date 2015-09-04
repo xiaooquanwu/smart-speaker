@@ -6,6 +6,7 @@ SET (EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 ADD_DEFINITIONS (-g)
 
 SET(SPEAKER_SRC src/speaker.asr.c
+                src/speaker.c
                 src/speaker.tts.c
                 src/speaker.cmd.c 
                 src/speaker.cooker.c 
