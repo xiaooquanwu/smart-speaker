@@ -11,6 +11,7 @@ get_audio_file ()
     printf ("  1: who are you ?\n");
     printf ("  2: play music?\n");
     printf ("  3: what is the time?\n");
+    printf ("  4: how about the weaher?\n");
 
     char command[64];
     scanf("%s", command); 
@@ -21,6 +22,8 @@ get_audio_file ()
             return "test/sound/play-music.wav";
         case '3':
             return "test/sound/what-is-the-time.wav";
+	case '4':
+	    return "test/sound/weather.wav";
         default:
             return NULL;
     }

@@ -19,7 +19,8 @@ speaker_cmd_parse (const char *audio_command)
     static const request_t requests[] = {
         {REQ_WHO_ARE_YOU, "你是谁"},
         {REQ_PLAY, "播放音乐"},
-        {REQ_GET_TIME, "几点了"} };
+        {REQ_GET_TIME, "几点了"},
+        {REQ_GET_WEATHER, "天气预报"}};
     
     unsigned i = 0;
     unsigned len = sizeof(requests)/sizeof(requests[0]);
@@ -29,7 +30,7 @@ speaker_cmd_parse (const char *audio_command)
     }
 	
     fprintf (stderr, "unknow command <%s>", text);
-	return NULL;
+    return NULL;
 }
 
 request_t*

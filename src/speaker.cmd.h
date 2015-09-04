@@ -6,6 +6,7 @@ typedef int io_t;
 typedef enum {
     REQ_WHO_ARE_YOU,
     REQ_GET_TIME,
+    REQ_GET_WEATHER,
     REQ_FAIL,
     REQ_PLAY,
     REQ_TALK,
