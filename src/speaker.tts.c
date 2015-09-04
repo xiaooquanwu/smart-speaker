@@ -96,8 +96,8 @@ text_to_speech(const char* src_text ,const char* des_path ,const char* params)
 		   fwrite(data, audio_len, 1, fp);
 		   pcmwavhdr.data_size += audio_len;//修正pcm数据的大小
 		}
-              printf("\nget audio...\n");
-              usleep(150000);//建议可以sleep下，因为只有云端有音频合成数据，audioget都能获取到音频。
+        
+        usleep(1500);//建议可以sleep下，因为只有云端有音频合成数据，audioget都能获取到音频。
 		if (synth_status == 2 || ret != 0) 
 		break;
 	}

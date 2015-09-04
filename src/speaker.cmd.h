@@ -4,6 +4,9 @@
 typedef int io_t;
 
 typedef enum {
+    REQ_WHO_ARE_YOU,
+    REQ_GET_TIME,
+    REQ_FAIL,
     REQ_PLAY,
     REQ_TALK,
     REQ_QUERY,
@@ -16,7 +19,7 @@ typedef struct {
 } request_t;
 
 request_t*
-request_new();
+request_new(request_op_t op, const char *cmd);
 
 void
 request_free(request_t *req);
@@ -48,5 +51,8 @@ reply_send(io_t *io, reply_t *reply);
 
 reply_t*
 reply_recv(io_t *io);
+
+request_t*
+speaker_cmd_parse (const char *audio_command);
 
 #endif /* SPEAKER_CMD_H */
