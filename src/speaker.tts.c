@@ -13,22 +13,22 @@ typedef short int SR_WORD ;
 //音频头部格式
 struct wave_pcm_hdr
 {
-	char            riff[4];                        // = "RIFF"
-	SR_DWORD        size_8;                         // = FileSize - 8
-	char            wave[4];                        // = "WAVE"
-	char            fmt[4];                         // = "fmt "
-	SR_DWORD        dwFmtSize;                      // = 下一个结构体的大小 : 16
+	char            riff[4];                // = "RIFF"
+	SR_DWORD        size_8;                 // = FileSize - 8
+	char            wave[4];                // = "WAVE"
+	char            fmt[4];                 // = "fmt "
+	SR_DWORD        dwFmtSize;              // = 下一个结构体的大小 : 16
 
-	SR_WORD         format_tag;              // = PCM : 1
+	SR_WORD         format_tag;             // = PCM : 1
 	SR_WORD         channels;                       // = 通道数 : 1
 	SR_DWORD        samples_per_sec;        // = 采样率 : 8000 | 6000 | 11025 | 16000
 	SR_DWORD        avg_bytes_per_sec;      // = 每秒字节数 : dwSamplesPerSec * wBitsPerSample / 8
 	SR_WORD         block_align;            // = 每采样点字节数 : wBitsPerSample / 8
-	SR_WORD         bits_per_sample;         // = 量化比特数: 8 | 16
+	SR_WORD         bits_per_sample;        // = 量化比特数: 8 | 16
 
-	char            data[4];                        // = "data";
-	SR_DWORD        data_size;                // = 纯数据长度 : FileSize - 44 
-} ;
+	char            data[4];                // = "data";
+	SR_DWORD        data_size;              // = 纯数据长度 : FileSize - 44 
+};
 
 //默认音频头部数据
 struct wave_pcm_hdr default_pcmwavhdr = 
@@ -125,7 +125,7 @@ int
 tts_run (const char *text)
 {
 	///APPID请勿随意改动
-	const char*  filename = "tts.wav";
+	const char*  filename = "/tmp/tts.wav";
     //8k音频合成参数：aue=speex,auf=audio/L16;rate=8000,其他参数意义参考参数列表
 	const char* param = "vcn=xiaoyan,aue = speex-wb,auf=audio/L16;rate=16000,spd = 5,vol = 5,tte = utf8";
 	int ret = 0;
@@ -139,7 +139,7 @@ tts_run (const char *text)
 	}
 
     //play the sound
-    system ("play tts.wav");
+    system ("play /tmp/tts.wav");
 
 	return 0;
 }
