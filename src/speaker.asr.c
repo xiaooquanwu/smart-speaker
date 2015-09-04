@@ -31,7 +31,7 @@ int get_grammar_id( int upload)
 	fp = fopen("conf/asr_keywords_utf8.txt", "rb");  //关键字列表文件必须是utf8格式
 	if (fp == NULL)
 	{
-		printf("keyword file cannot open\n");
+		//printf("keyword file cannot open\n");
 		return -1;
 	}
 	len = (unsigned int)fread(UserData, 1, MAX_KEYWORD_LEN, fp);
@@ -40,7 +40,7 @@ int get_grammar_id( int upload)
        testID = MSPUploadData("userword", UserData, len, "dtt = userword, sub = asr", &ret);// sub 参数必需，否则返回空串
 	if(ret != MSP_SUCCESS)
 	{
-		printf("UploadData with errorCode: %d \n", ret);
+		//printf("UploadData with errorCode: %d \n", ret);
 		return ret;
 	}
 	memcpy((void*)GrammarID, testID, strlen(testID));

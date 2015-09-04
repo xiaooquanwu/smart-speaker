@@ -3,6 +3,8 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
 FILE(MAKE_DIRECTORY         ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 SET (EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
+ADD_DEFINITIONS (-g)
+
 SET(SPEAKER_SRC src/speaker.asr.c
                 src/speaker.tts.c
                 src/speaker.cmd.c 

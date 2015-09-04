@@ -1,4 +1,5 @@
 bin/
 build/
 msc/
+test/
 tts.wav

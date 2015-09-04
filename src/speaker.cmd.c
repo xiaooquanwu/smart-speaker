@@ -1,6 +1,36 @@
-#include "speaker.cmd.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+
+#include "speaker.cmd.h"
+#include "speaker.asr.h"
+
+request_t*
+speaker_cmd_parse (const char *audio_command)
+{
+    char *str = asr_run (audio_command);
+    char *text = strstr (str, "input=");
+    if (text==NULL) {
+        fprintf (stderr, "can not be here");
+        return NULL;
+    }
+    text = text + 6;
+
+    static const request_t requests[] = {
+        {REQ_WHO_ARE_YOU, "你是谁"},
+        {REQ_PLAY, "播放音乐"},
+        {REQ_GET_TIME, "几点了"} };
+    
+    unsigned i = 0;
+    unsigned len = sizeof(requests)/sizeof(requests[0]);
+    for (i=0; i<len; i++) {
+        if (strncmp(text, requests[i].cmd, strlen(requests[i].cmd)) == 0)
+            return request_new(requests[i].op, requests[i].cmd);
+    }
+	
+    fprintf (stderr, "unknow command <%s>", text);
+	return NULL;
+}
 
 request_t*
 request_new(request_op_t op, const char *cmd)
